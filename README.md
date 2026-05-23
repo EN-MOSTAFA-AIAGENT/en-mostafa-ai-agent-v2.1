@@ -1,7 +1,7 @@
 # EN MOSTAFA AI AGENT v2.1
 
-A new, cleaner edition of the EN MOSTAFA AI AGENT system, designed to run side-by-side with the legacy version.
-This repo is a modern foundation for a WordPress AI control center with a lightweight Flask backend, structured code layout, and cleaner documentation.
+EN MOSTAFA AI AGENT v2.1 is a clean local-first foundation for an AI control agent.
+WordPress is supported as one integration adapter, but the architecture is broader: REST APIs, future MCP tools, local task execution through PowerShell/CMD, LLM connectors, and developer workflows for building or modifying projects in any programming stack, including Visual Studio and ASP.NET.
 
 ## Why `v2.1` exists
 
@@ -12,52 +12,50 @@ This repo is a modern foundation for a WordPress AI control center with a lightw
 ## What this version includes
 
 - `Flask` web server with REST endpoints.
-- Lightweight WordPress site manager abstraction.
-- AI interaction bridge for task execution and chat.
-- Simple dashboard template for quick visibility.
-- A documented structure ready for extension.
+- Lightweight integration adapter for external systems, starting with WordPress.
+- AI bridge placeholder that can be connected to OpenAI, Anthropic, local models, or OpenAI-compatible providers.
+- Simple dashboard template for visibility and operator actions.
+- A documented architecture ready for MCP tools, Task Engine workflows, Memory, Planning, Strategy, and local automation.
 
 ## Architecture overview
 
-This repo is intentionally small and modular:
+This repo is intentionally small and modular. The complete professional architecture is documented in [`docs/architecture.md`](docs/architecture.md).
 
-- `src/app.py` — application entry point and Flask server.
-- `src/routes.py` — REST route definitions for WordPress and AI flows.
-- `src/wp_manager.py` — WordPress site connection and status helper.
-- `src/llm_bridge.py` — AI task execution and chat interface.
-- `templates/dashboard.html` — simple dashboard UI.
+- `src/app.py` - application entry point and Flask server.
+- `src/routes.py` - REST route definitions for agent and integration flows.
+- `src/wp_manager.py` - first external-system adapter, currently focused on WordPress site registration/status.
+- `src/llm_bridge.py` - model connector boundary for task execution and chat.
+- `templates/dashboard.html` - simple dashboard UI.
 
 ### System diagram
 
 ```
 +--------------------+       +-----------------------+
 |   User / Browser   | <---> |   Flask Web Server    |
-|  (Dashboard + API) |       |   src/app.py          |
+| Dashboard + REST   |       |   src/app.py          |
 +--------------------+       +-----------------------+
-            |                         |
-            |                         +---> src/routes.py
-            |                         |       (API endpoints)
-            |                         |
-            |                         +---> src/wp_manager.py
-            |                         |       (WordPress helpers)
-            |                         |
-            |                         +---> src/llm_bridge.py
-            |                                 (AI task bridge)
-            |
-            v
-+--------------------+
-| WordPress Sites    |
-| + Hostinger, LMS   |
-+--------------------+
+                                      |
+                                      +---> src/routes.py
+                                      |       REST endpoints
+                                      |
+                                      +---> src/llm_bridge.py
+                                      |       LLM connector boundary
+                                      |
+                                      +---> src/wp_manager.py
+                                              first integration adapter
+
+Planned extension surface:
+MCP tools, Task Engine, Memory, Strategy, Planning, PowerShell/CMD,
+Visual Studio/ASP.NET workflows, hosting providers, LMS systems, and other APIs.
 ```
 
 ## Project structure
 
-- `src/` — application source code
-- `templates/` — HTML for the dashboard
-- `requirements.txt` — Python dependencies
-- `.gitignore` — local ignores
-- `docs/` — architecture and roadmap documentation
+- `src/` - application source code.
+- `templates/` - HTML for the dashboard.
+- `requirements.txt` - Python dependencies.
+- `.gitignore` - local ignores.
+- `docs/` - architecture and roadmap documentation.
 
 ## Installation
 
@@ -88,8 +86,8 @@ See `docs/roadmap.md` for the full feature list and roadmap.
 
 ## Documentation
 
-- `docs/architecture.md` — system architecture and component roles.
-- `docs/roadmap.md` — planned features and task list for `v2.1`.
+- `docs/architecture.md` - full agent architecture, modules, REST/MCP/Task Engine, Memory, Strategy, Planning, Dashboard, Autonomous Loop, and extension points.
+- `docs/roadmap.md` - planned features and task list for `v2.1`.
 
 ## Notes
 
