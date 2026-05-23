@@ -412,18 +412,6 @@ These features should live inside adapters, while the core agent remains general
 - Keep adapters separated from the core task engine.
 - Do not let a WordPress task accidentally affect a local project, and do not let a local shell task accidentally affect a production site.
 
-## Roadmap
-
-1. Replace mock `src/llm_bridge.py` with real provider connectors.
-2. Add persistent site/config storage.
-3. Add `TaskEngine` with SQLite-backed steps.
-4. Add `SystemExecutor` for PowerShell/CMD.
-5. Add MCP server and tool schemas.
-6. Add Memory, Strategy, Planning, and Dynamic Rules.
-7. Expand dashboard into a full control center.
-8. Add local project and ASP.NET adapters.
-9. Add WordPress/LMS/Hosting adapters as separate modules.
-10. Add artifact verification and safe execution policies.
 
 ## Installation
 
